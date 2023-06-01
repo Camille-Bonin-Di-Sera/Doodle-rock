@@ -16,7 +16,7 @@ export default function PageGalery() {
       <Text style={styles.title}>Galery</Text>
    
       <StatusBar />
-      <Button onPress={()=> router.back()}/>
+      <Button onPress={()=> router.back()} title='Retour' color={"black"}/>
     </View>
   );
 }
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     zIndex:999999,
   },
-  homeLink :{
+  goback :{
     color: '#fff',
     marginTop: 50,
     fontSize: 15,
