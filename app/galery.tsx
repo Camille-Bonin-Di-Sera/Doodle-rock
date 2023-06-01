@@ -1,24 +1,22 @@
-import React from 'react';
-import { StatusBar, StyleSheet, Text, View, Image } from 'react-native';
+import { StatusBar, StyleSheet, Text, View, Button } from 'react-native';
 import "expo-router/entry";
-import {Link} from "expo-router";
+import {useRouter} from "expo-router";
 import { LinearGradient } from 'expo-linear-gradient';
-const Skull = require('../assets/skull.png');
 
-export default function App(): JSX.Element {
+export default function PageGalery() {
+  const router = useRouter();
+
+
   return (
     <View style={styles.container}>
         <LinearGradient
-        colors={['black', '#6ad14d','#6ad14d','#6ad14d','#6ad14d','#6ad14d', 'black']}
+        colors={['black', 'red','red','red','red','red', 'black']}
         style={styles.gradient}
       />
-      <Text style={styles.title}>Rock'n roses</Text>
-      <Image
-        source={Skull} 
-        style={{width: 200, height: 200}}
-      />
+      <Text style={styles.title}>Galery</Text>
+   
       <StatusBar />
-      <Link  href="/galery"  style={styles.homeLink}> Galery</Link>
+      <Button onPress={()=> router.back()}/>
     </View>
   );
 }
