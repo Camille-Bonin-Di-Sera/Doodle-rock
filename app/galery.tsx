@@ -38,7 +38,7 @@ export default function PageGalery() {
       <Text style={styles.title}>Nightmare</Text>
     
       <StatusBar />
-    
+      <Card /> {/* Utilisation du composant Card ici */}
       <Button onPress={() => router.back()} title='Retour' color={"black"} />
     </View>
   );
