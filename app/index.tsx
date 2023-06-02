@@ -5,11 +5,15 @@ import {Link} from "expo-router";
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+import { Button } from 'react-native-elements';
+import "expo-router/entry";
+
 
 
 SplashScreen.preventAutoHideAsync();
 
 const Skull = require('../assets/images/skull.png');
+const Hand = require('../assets/images/hand.png');
 
 
 export default function App(): JSX.Element | null{
@@ -38,8 +42,20 @@ export default function App(): JSX.Element | null{
         source={Skull} 
         style={{width: 100, height: 100}}
       />
+     
       <StatusBar />
-      <Link  href="/galery"  style={styles.homeLink}>Nos films</Link>
+      <Link href="/galery"  style={styles.btn}>
+        <View style={styles.textContainer}>
+        <Text style={styles.movies}>Nos films</Text> 
+        </View>
+        <View style={styles.imageContainer}>
+          <Image
+            source={Hand}
+            style={[styles.image]}
+          />
+        </View>
+        
+      </Link>
     </View>
   );
 }
@@ -68,5 +84,26 @@ const styles = StyleSheet.create({
     marginTop: 50,
     fontSize: 15,
     zIndex:999999,
+  },
+  btn :{
+    justifyContent: 'center',
+    marginTop:12,
+  },
+  movies :{
+    color: '#fff',
+    fontSize: 20,
+  },
+  imageContainer: {
+    transform: [{ rotate: '90deg' }],
+    zIndex:999999,
+  },
+  textContainer: {
+    zIndex:999999,
+    height:45,
+    width:120,
+  },
+  image: {
+    width: 70,
+    height: 70,
   },
 });

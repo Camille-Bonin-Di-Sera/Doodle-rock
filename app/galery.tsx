@@ -7,6 +7,8 @@ import "expo-router/entry";
 import {Link} from "expo-router";
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+import Card from './component/card'
+
 
 
 SplashScreen.preventAutoHideAsync();
@@ -29,15 +31,15 @@ export default function PageGalery() {
 
   return ( !fontsLoaded ? null :
     <View style={styles.container}>
-        <LinearGradient
-       colors={['#6ad14d', 'black','black','black','black','black', '#6ad14d']}
+      <LinearGradient
+        colors={['#6ad14d', 'black','black','black','black','black', '#6ad14d']}
         style={styles.gradient}
       />
       <Text style={styles.title}>Nightmare</Text>
-   
+    
       <StatusBar />
-      <Link  href="/card"  style={styles.homeLink}>Nos films</Link>
-      <Button onPress={()=> router.back()} title='Retour' color={"black"}/>
+    
+      <Button onPress={() => router.back()} title='Retour' color={"black"} />
     </View>
   );
 }
