@@ -1,18 +1,19 @@
+import { StatusBar, StyleSheet, Text, View, Button } from 'react-native';
+import "expo-router/entry";
+import {useRouter} from "expo-router";
+import { LinearGradient } from 'expo-linear-gradient';
 import React, { useCallback } from 'react';
-import { StatusBar, StyleSheet, Text, View, Image } from 'react-native';
 import "expo-router/entry";
 import {Link} from "expo-router";
-import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
 
 SplashScreen.preventAutoHideAsync();
 
-const Skull = require('../assets/images/skull.png');
 
-
-export default function App(): JSX.Element | null{
+export default function PageGalery() {
+  const router = useRouter();
   const [fontsLoaded] = useFonts({
     'Who asks Satan': require('../assets/fonts/satan.ttf'),
     'ZOMBIES REBORN': require('../assets/fonts/zombie.ttf'),
@@ -24,22 +25,24 @@ export default function App(): JSX.Element | null{
     }
   }, [fontsLoaded]);
 
-  
 
-  
+
   return ( !fontsLoaded ? null :
-    <View style={styles.container} onLayout={onLayoutRootView}>
+    <View style={styles.container}>
         <LinearGradient
-        colors={['#6ad14d', 'black','black','black','black','black', '#6ad14d']}
+       colors={['#6ad14d', 'black','black','black','black','black', '#6ad14d']}
         style={styles.gradient}
       />
-      <Text style={styles.title}>Nightmare</Text>
-      <Image
-        source={Skull} 
-        style={{width: 100, height: 100}}
-      />
+      <Text style={styles.title}>Test cards</Text>
+      <Text>Test cards</Text>
+      <Text>Test cards</Text>
+      <Text>Test cards</Text>
+      <Text>Test cards</Text>
+      
+   
       <StatusBar />
-      <Link  href="/galery"  style={styles.homeLink}>Nos films</Link>
+      <Link  href="/"  style={styles.homeLink}>home</Link>
+      <Button onPress={()=> router.back()} title='Retour' color={"black"}/>
     </View>
   );
 }
@@ -48,7 +51,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   gradient: {
     width: '100%',
@@ -58,15 +60,26 @@ const styles = StyleSheet.create({
   },
   title :{
     color: '#fff',
+    marginTop: 20,
     marginBottom: 16,
-    fontSize: 80,
+    fontSize: 60,
     zIndex:999999,
     fontFamily:'Who asks Satan',
   },
   homeLink :{
     color: '#fff',
     marginTop: 50,
+    fontSize: 20,
+    zIndex:999999,
+    backgroundColor: 'red',
+    padding: 20,
+  },
+  goback :{
+    color: '#fff',
+    marginTop: 50,
     fontSize: 15,
     zIndex:999999,
+    textAlignVertical: 'bottom',
   },
+  
 });
